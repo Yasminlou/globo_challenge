@@ -43,3 +43,19 @@ def get_first_episode(character_info: dict) -> dict:
         print(f"[ERROR] Failed to fetch episode: {e}")
         raise  
 
+@task
+def summarize(character: dict, episode: dict):
+    print(f"\n--- SUMMARY ---")
+    print(f"Character: {character['name']}")
+    print(f"Species: {character['species']}")
+    print(f"Status: {character['status']}")
+    print(f"First appearance: {episode['name']} (S{episode['episode']})")
+
+@flow(name="Rick and Morty Flow with Retry")
+def main(character_name: str = "Rick Sanchez"):
+    character_data = get_character_name(character_name)
+    episode_data = get_first_episode(character_data)
+    summarize(character_data, episode_data)
+
+if __name__ == "__main__":
+    main()
