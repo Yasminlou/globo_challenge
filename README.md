@@ -42,7 +42,7 @@ pip install -r requirements.txt
 ```bash
 python app.py
 ```
-## 📁 Preject Estrut
+## 📁 Project structure
 ```bash
 ├── flows/
 │   └── main.py # call flow
